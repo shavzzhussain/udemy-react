@@ -12,6 +12,7 @@ class App extends Component {
             <Person name="bunto" age="22">My Hobbies is racing</Person>
             <Person name="test" age="23"/>
             <Person name="text2" age="32"/>
+            <Person name="sds" age="32sd"/>
       </div>
     );
   }
