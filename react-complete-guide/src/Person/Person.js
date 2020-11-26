@@ -6,6 +6,7 @@ return (
     <p>I am {props.name} i am {props.age} years old.</p>
         <p>{props.children}</p>
         <button onClick={props.click}>Delete</button>
+        <input type="text" onChange={props.changed} value={props.name}/>
     </div>
 )
 }

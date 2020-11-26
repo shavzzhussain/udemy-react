@@ -6,15 +6,9 @@ class App extends Component {
     // state property of a class based component
     state = {
         persons : [
-            {
-                name: 'Max',age:23
-            },
-            {
-                name: 'Manu',age:29
-            },
-            {
-                name: 'Maxcc',age:26
-            }
+            {id: 1, name: 'Max', age: 23},
+            {id: 2, name: 'Manu', age: 29},
+            {id: 3, name: 'Maxcc', age: 26}
         ],
         showPerson:true
     }
@@ -25,21 +19,21 @@ class App extends Component {
 
     }
 
-    nameChangehandler = (event) => {
-        this.setState({
-            persons : [
-                {
-                    name: event.target.value,age:23
-                },
-                {
-                    name: event.target.value ,age:29
-                },
-                {
-                    name: event.target.value ,age:23
-                }
-            ]
-
+    nameChangehandler = (event,personId) => {
+        const personIndex = this.state.persons.findIndex(p => {
+            return p.id === personId
         })
+        const person = {
+            ...this.state.persons[personIndex]
+        };
+        person.name = event.target.value
+        const persons = [...this.state.persons]
+        persons[personIndex] = person
+        this.setState({persons:persons})
+
+
+
+
     }
     tooglePersonHandler = () => {
          this.setState({
@@ -62,8 +56,10 @@ class App extends Component {
                     {this.state.persons.map((person,index) => {
                         return <Person
                             click={() => this.deletePersonHandler(index)}
+                            changed={(event) => this.nameChangehandler(event,person.id)}
                             name={person.name}
-                            age={person.age}/>
+                            age={person.age}
+                            key={person.id}/>
                     })}
                      </div>
             )
