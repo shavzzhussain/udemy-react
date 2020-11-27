@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import Styleclasses from './App.css';
 import Person from './Person/Person'
 class App extends Component {
     // state property of a class based component
@@ -41,16 +41,6 @@ class App extends Component {
 
     }
   render() {
-        let style = {
-            backgroundColor: 'red',
-            border: '1px solid black',
-            color: 'white',
-            padding: '8px',
-            font: 'inherit',
-            ':hover': {
-                backgroundColor : 'black'
-            }
-        }
         let persons = null
 
         if (this.state.showPerson){
@@ -66,7 +56,6 @@ class App extends Component {
                     })}
                      </div>
             )
-            style.backgroundColor = 'green'
         }
       const classes = []
       if (this.state.persons.length <=2) {
@@ -77,10 +66,10 @@ class App extends Component {
       }
 
     return (
-        <div className='App'>
+        <div className={Styleclasses.App}>
             <h1>This is react app</h1>
-            <p className={classes.join(' ')}>This is really working</p>
-            <button style={style} onClick={this.tooglePersonHandler}>Switch Button</button>
+            <p>This is really working</p>
+            <button className={Styleclasses.Button} onClick={this.tooglePersonHandler}>Switch Button</button>
             {persons}
         </div>
     );

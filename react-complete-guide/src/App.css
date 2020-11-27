@@ -8,3 +8,13 @@
 .bold {
   font-weight: bold;
 }
+.Button {
+            background: red;
+            border: 1px solid black;
+            color: white;
+            padding: 8px;
+            font: inherit;
+}
+.Buttom:hover {
+  background-color: black;
+}
