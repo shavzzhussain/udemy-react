@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Styleclasses from './App.css';
-import Person from '../components/Persons/Person/Person.jsx'
+import Persons from '../components/Persons/Persons'
 class App extends Component {
     // state property of a class based component
     state = {
@@ -46,14 +46,11 @@ class App extends Component {
         if (this.state.showPerson){
             persons = (
                 <div>
-                    {this.state.persons.map((person,index) => {
-                        return <Person
-                            click={() => this.deletePersonHandler(index)}
-                            changed={(event) => this.nameChangehandler(event,person.id)}
-                            name={person.name}
-                            age={person.age}
-                            key={person.id}/>
-                    })}
+                    <Persons
+                        clicked={this.deletePersonHandler}
+                        changed={this.nameChangehandler}
+                        persons ={this.state.persons}
+                    />
                      </div>
             )
         }
