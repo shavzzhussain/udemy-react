@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Styleclasses from './App.css';
 import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit'
 class App extends Component {
     // state property of a class based component
     state = {
@@ -45,28 +46,21 @@ class App extends Component {
 
         if (this.state.showPerson){
             persons = (
-                <div>
                     <Persons
                         clicked={this.deletePersonHandler}
                         changed={this.nameChangehandler}
                         persons ={this.state.persons}
                     />
-                     </div>
             )
         }
-      const classes = []
-      if (this.state.persons.length <=2) {
-          classes.push('red')
-      }
-      if (this.state.persons.length <=1) {
-          classes.push('bold')
-      }
 
     return (
         <div className={Styleclasses.App}>
-            <h1>This is react app</h1>
-            <p>This is really working</p>
-            <button className={Styleclasses.Button} onClick={this.tooglePersonHandler}>Switch Button</button>
+            <Cockpit
+            clicked={this.tooglePersonHandler}
+            persons={this.state.persons}
+            showPerson= {this.state.showPerson}
+            />
             {persons}
         </div>
     );
