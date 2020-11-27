@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Styleclasses from './App.css';
-import Person from './Person/Person'
+import Person from '../components/Persons/Person/Person.jsx'
 class App extends Component {
     // state property of a class based component
     state = {
