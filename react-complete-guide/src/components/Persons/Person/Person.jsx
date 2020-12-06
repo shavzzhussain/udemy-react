@@ -1,20 +1,21 @@
-import React,{Component} from 'react';
-import './Person.css'
+import React,{Component,Fragment} from 'react';
+import classes from './Person.css'
+import withClass from '../../Hoc/withClass'
 
 class Person extends Component{
     render() {
         return (
-
-            <div className="Person">
-                <p>I am {this.props.name} i am {this.props.age} years old.</p>
+                <Fragment>
+                     <p>I am {this.props.name} i am {this.props.age} years old.</p>
                 <p>{this.props.children}</p>
                 <button onClick={this.props.click}>Delete</button>
                 <input type="text" onChange={this.props.changed} value={this.props.name}/>
-            </div>
+                </Fragment>
+               
 
         )
 
     }
 
 }
-export default Person;
+export default withClass(Person,classes.Person);
