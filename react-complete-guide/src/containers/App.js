@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import Styleclasses from './App.css';
 import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
-import WithClass from '../components/Hoc/WithClass'
+import withClass from '../components/Hoc/withClass'
 class App extends Component {
     // state property of a class based component
     state = {
@@ -56,7 +56,7 @@ class App extends Component {
         }
 
     return (
-        <WithClass classes={Styleclasses.App}>
+        <Fragment>
             <Cockpit
             title={this.props.appTitle}
             clicked={this.tooglePersonHandler}
@@ -64,9 +64,9 @@ class App extends Component {
             showPerson= {this.state.showPerson}
             />
             {persons}
-        </WithClass>
+        </Fragment>
     );
   }
 }
 
-export default App;
+export default withClass(App,Styleclasses.App);
