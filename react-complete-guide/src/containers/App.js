@@ -1,8 +1,8 @@
 import React, { Component,Fragment } from 'react';
 import Styleclasses from './App.css';
-import Persons from '../components/Persons/Persons'
-import Cockpit from '../components/Cockpit/Cockpit'
-import withClass from '../components/Hoc/withClass'
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
+import withClass from '../components/Hoc/WithClass';
 class App extends Component {
     // state property of a class based component
     state = {

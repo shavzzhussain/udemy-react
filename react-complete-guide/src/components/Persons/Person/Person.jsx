@@ -1,21 +1,25 @@
 import React,{Component,Fragment} from 'react';
 import classes from './Person.css'
-import withClass from '../../Hoc/withClass'
-
+import withClass from '../../Hoc/WithClass'
+import PropsType from 'prop-types';
 class Person extends Component{
     render() {
         return (
-                <Fragment>
-                     <p>I am {this.props.name} i am {this.props.age} years old.</p>
+            <Fragment>
+                <p>I am {this.props.name} i am {this.props.age} years old.</p>
                 <p>{this.props.children}</p>
                 <button onClick={this.props.click}>Delete</button>
                 <input type="text" onChange={this.props.changed} value={this.props.name}/>
-                </Fragment>
-               
+            </Fragment>
 
         )
-
     }
-
 }
+
+Person.PropsType = {
+    click: PropsType.func,
+    name: PropsType.string,
+    age: PropsType.number
+
+};
 export default withClass(Person,classes.Person);
