@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Styleclasses from './App.css';
 import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
+import WithClass from '../components/Hoc/WithClass'
 class App extends Component {
     // state property of a class based component
     state = {
@@ -55,7 +56,7 @@ class App extends Component {
         }
 
     return (
-        <div className={Styleclasses.App}>
+        <WithClass classes={Styleclasses.App}>
             <Cockpit
             title={this.props.appTitle}
             clicked={this.tooglePersonHandler}
@@ -63,7 +64,7 @@ class App extends Component {
             showPerson= {this.state.showPerson}
             />
             {persons}
-        </div>
+        </WithClass>
     );
   }
 }
